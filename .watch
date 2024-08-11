@@ -1,0 +1,11 @@
+{
+  "watch": {
+    "files": [
+      "**/*.cs"
+    ],
+    "exclude": [
+      "wwwroot/",
+      "node_modules/"
+    ]
+  }
+}

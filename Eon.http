@@ -1,0 +1,6 @@
+@Eon_HostAddress = http://localhost:5089
+
+GET {{Eon_HostAddress}}/
+Accept: application/json
+
+###
