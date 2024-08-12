@@ -1,0 +1,17 @@
+meta {
+  name: Create Folder
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{API_HOST}}/api/folders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Comercial"
+  }
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Update Flow
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{API_HOST}}/api/flows/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Teste x",
+    "folder": "x"
+  }
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Create Flow
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{API_HOST}}/api/flows
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "flow de teste",
+    "folder": "x"
+  }
+}
