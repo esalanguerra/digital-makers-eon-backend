@@ -20,15 +20,15 @@ namespace Eon.Com.Domain.Models.Entity.TokenEntity
         public int UserId { get; set; }
 
         // Propriedade de navegação para o User associado
-        [ForeignKey("token_acesso_usuario")] // Define a relação de chave estrangeira
-        public User User { get; set; }
+        [ForeignKey(nameof(UserId))] // Define a chave estrangeira
+        public virtual User User { get; set; }
 
         // Construtor padrão
         public Token()
         {
             Value = string.Empty; // Inicializa o Value como uma string vazia
             UserId = 0; // Inicializa UserId como 0
-            User = new User(); // Inicializa User
+            User = new User(); // Inicializa User como uma nova instância de User
         }
 
         // Construtor que inicializa a classe com valores específicos
@@ -36,7 +36,7 @@ namespace Eon.Com.Domain.Models.Entity.TokenEntity
         {
             Value = value ?? throw new ArgumentNullException(nameof(value)); // Garante que o valor não seja nulo
             UserId = userId; // Inicializa UserId
-            User = new User(); // Inicializa User
+            User = new User(); // Inicializa User como uma nova instância de User
         }
     }
 }

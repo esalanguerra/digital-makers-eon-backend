@@ -2,19 +2,32 @@ using Eon.Com.Api.ActionResults.ViewModels.UserViewModel;
 
 namespace Eon.Com.Api.ActionResults.ApiResponseData.UserApiResponseData
 {
-    // DTO para um único usuário
+    /// <summary>
+    /// Representa a resposta para uma solicitação de um único usuário.
+    /// </summary>
     public class SingleUserResponse
     {
-        // Mensagem de resposta (por exemplo, "Sucesso" ou "Erro")
+        /// <summary>
+        /// Mensagem de resposta (por exemplo, "Sucesso" ou "Erro").
+        /// </summary>
         public string Message { get; set; } = string.Empty;
 
-        // Código de resposta (por exemplo, um código de status ou erro)
+        /// <summary>
+        /// Código de resposta (por exemplo, um código de status ou erro).
+        /// </summary>
         public string Code { get; set; } = string.Empty;
 
-        // Dados do usuário encapsulados em UserViewModel
+        /// <summary>
+        /// Dados do usuário encapsulados em UserViewModel.
+        /// </summary>
         public UserViewModel Data { get; set; } = new UserViewModel();
 
-        // Construtor para inicializar o DTO com valores específicos
+        /// <summary>
+        /// Construtor para inicializar o DTO com valores específicos.
+        /// </summary>
+        /// <param name="message">Mensagem de resposta.</param>
+        /// <param name="code">Código de resposta.</param>
+        /// <param name="user">Dados do usuário.</param>
         public SingleUserResponse(string message, string code, UserViewModel user)
         {
             Message = message;
@@ -22,7 +35,9 @@ namespace Eon.Com.Api.ActionResults.ApiResponseData.UserApiResponseData
             Data = user;
         }
 
-        // Construtor padrão
+        /// <summary>
+        /// Construtor padrão.
+        /// </summary>
         public SingleUserResponse()
         {
         }

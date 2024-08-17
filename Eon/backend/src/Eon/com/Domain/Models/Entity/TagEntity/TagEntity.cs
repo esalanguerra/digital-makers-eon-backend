@@ -4,44 +4,43 @@ using Eon.Com.Domain.Models.Entity.SectorEntity; // Importa a classe Sector para
 
 namespace Eon.Com.Domain.Models.Entity.TagEntity
 {
-    [Table("etiquetas")]
+    [Table("etiquetas")] // Mapeia a classe para a tabela "etiquetas" no banco de dados
     public class Tag
     {
-        [Key]
+        [Key] // Define o campo "id" como chave primária da tabela
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("nome_etiqueta")]
-        [Required]
+        [Column("etiqueta_nome")] // Define o campo "name" na tabela
+        [Required] // Torna o campo obrigatório
         public string Name { get; set; }
 
-        [Column("descricao_etiqueta")]
-        public string Description { get; set; }
+        [Column("etiqueta_descricao")] // Define o campo "description" na tabela
+        public string Description { get; set; } // Pode ser nulo
 
-        // Chave estrangeira para o setor
-        [Column("sector_id")]
+        [Column("etiqueta_sector_id")] // Define o campo "sector_id" na tabela
         public int SectorId { get; set; } // Chave estrangeira para o setor
 
         // Propriedade de navegação para o setor associado
-        [ForeignKey(nameof(SectorId))]
+        [ForeignKey(nameof(SectorId))] // Define a relação de chave estrangeira com a tabela "sector"
         public virtual Sector Sector { get; set; }
 
         // Construtor padrão
         public Tag()
         {
-            Name = string.Empty;
-            Description = string.Empty;
-            SectorId = 0;
-            Sector = new Sector(); // Inicializa a propriedade de navegação
+            Name = string.Empty; // Inicializa Name como uma string vazia
+            Description = string.Empty; // Inicializa Description como uma string vazia
+            SectorId = 0; // Inicializa SectorId como 0
+            Sector = new Sector(); // Inicializa Sector como uma nova instância de Sector
         }
 
         // Construtor que inicializa a classe com valores específicos
         public Tag(string name, string description, int sectorId, Sector sector)
         {
-            Name = name ?? throw new ArgumentNullException(nameof(name)); // Garante que o nome não seja nulo
-            Description = description ?? throw new ArgumentNullException(nameof(description)); // Garante que a descrição não seja nula
-            SectorId = sectorId;
-            Sector = sector ?? throw new ArgumentNullException(nameof(sector)); // Garante que o setor não seja nulo
+            Name = name ?? throw new ArgumentNullException(nameof(name)); // Garante que Name não seja nulo
+            Description = description ?? throw new ArgumentNullException(nameof(description)); // Garante que Description não seja nula
+            SectorId = sectorId; // Inicializa SectorId
+            Sector = sector ?? throw new ArgumentNullException(nameof(sector)); // Garante que Sector não seja nulo
         }
     }
 }

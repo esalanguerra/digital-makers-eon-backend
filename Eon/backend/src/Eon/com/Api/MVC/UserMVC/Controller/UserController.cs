@@ -13,15 +13,18 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
     {
         private readonly IUserServiceInterface _userService;
 
+        // Construtor que injeta o serviço de usuário
         public UserController(IUserServiceInterface userService)
         {
             _userService = userService;
         }
 
+        /// <summary>
+        /// Obtém todos os usuários.
+        /// </summary>
         [HttpGet]
         public IActionResult GetAll()
         {
-            // Obtém todos os usuários
             var userListResponse = _userService.GetAll();
             if (userListResponse == null || !userListResponse.Data.Any())
             {
@@ -36,6 +39,9 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
             return Ok(userListResponse);
         }
 
+        /// <summary>
+        /// Obtém um usuário pelo ID.
+        /// </summary>
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -54,6 +60,9 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
             return Ok(userResponse);
         }
 
+        /// <summary>
+        /// Cria um novo usuário.
+        /// </summary>
         [HttpPost]
         public IActionResult Save([FromBody] CreateUserRequestDTO userDto)
         {
@@ -81,6 +90,9 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
             );
         }
 
+        /// <summary>
+        /// Atualiza um usuário existente.
+        /// </summary>
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] UpdateUserRequestDTO userDto)
         {
@@ -115,6 +127,9 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
             return NoContent();
         }
 
+        /// <summary>
+        /// Deleta um usuário pelo ID.
+        /// </summary>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

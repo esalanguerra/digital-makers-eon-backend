@@ -12,40 +12,63 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Eon.Com.Application.Configurations.Database.Postgresql
 {
-    // Contexto principal para acesso ao banco de dados.
+    /// <summary>
+    /// Contexto principal para acesso ao banco de dados.
+    /// </summary>
     public class ApplicationDbContext : DbContext
     {
-        // Construtor que recebe as opções de configuração do DbContext e as passa para a classe base.
+        /// <summary>
+        /// Construtor que recebe as opções de configuração do DbContext e as passa para a classe base.
+        /// </summary>
+        /// <param name="options">Opções de configuração para o DbContext.</param>
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
 
-        // DbSet para a entidade User. Permite operações CRUD na tabela "usuarios".
+        /// <summary>
+        /// DbSet para a entidade User. Permite operações CRUD na tabela "usuarios".
+        /// </summary>
         public DbSet<User> Users { get; set; }
 
-        // DbSet para a entidade Folder. Permite operações CRUD na tabela "pastas".
+        /// <summary>
+        /// DbSet para a entidade Folder. Permite operações CRUD na tabela "pastas".
+        /// </summary>
         public DbSet<Folder> Folders { get; set; }
 
-        // DbSet para a entidade Flow. Permite operações CRUD na tabela "fluxos".
+        /// <summary>
+        /// DbSet para a entidade Flow. Permite operações CRUD na tabela "fluxos".
+        /// </summary>
         public DbSet<Flow> Flows { get; set; }
 
-        // DbSet para a entidade Tag. Permite operações CRUD na tabela "etiquetas".
+        /// <summary>
+        /// DbSet para a entidade Tag. Permite operações CRUD na tabela "etiquetas".
+        /// </summary>
         public DbSet<Tag> Tags { get; set; }
 
-        // DbSet para a entidade Token. Permite operações CRUD na tabela "tokens_acesso".
+        /// <summary>
+        /// DbSet para a entidade Token. Permite operações CRUD na tabela "tokens_acesso".
+        /// </summary>
         public DbSet<Token> Tokens { get; set; }
 
-        // DbSet para entidade Fluxo Compartilhados (FlowsShared). Permite operações CRUD na tabela "fluxos_compartilhados".
+        /// <summary>
+        /// DbSet para a entidade FlowShared. Permite operações CRUD na tabela "fluxos_compartilhados".
+        /// </summary>
         public DbSet<FlowShared> FlowsShareds { get; set; }
 
-        // DbSet para entidade Mensagem Agendada (MessageScheduling). Permite operações CRUD na tabela "mensagens_agendadas".
+        /// <summary>
+        /// DbSet para a entidade MessageScheduling. Permite operações CRUD na tabela "mensagens_agendadas".
+        /// </summary>
         public DbSet<MessageScheduling> MessagesSchedulings { get; set; }
 
-        // DbSet para entidade Times (Teams). Permite operações CRUD na tabela "times".
+        /// <summary>
+        /// DbSet para a entidade Team. Permite operações CRUD na tabela "times".
+        /// </summary>
         public DbSet<Team> Teams { get; set; }
 
-        // DbSet para entidade Setores (Sectors). Permite operações CRUD na tabela "setores".
-        public DbSet<Sector> Sectors { get; internal set; }
+        /// <summary>
+        /// DbSet para a entidade Sector. Permite operações CRUD na tabela "setores".
+        /// </summary>
+        public DbSet<Sector> Sectors { get; set; }
     }
 }

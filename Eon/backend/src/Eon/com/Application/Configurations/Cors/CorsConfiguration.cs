@@ -13,8 +13,8 @@ namespace Eon.Com.Application.Configurations.Cors
                 options.AddPolicy("ApiCorsPolicy", builder =>
                 {
                     // Define as origens permitidas para a política de CORS.
-                    // Substitua "http://localhost:3000/" pela URL da origem permitida.
-                    builder.WithOrigins("http://localhost:3000/")
+                    // Substitua "http://localhost:3000" pela URL da origem permitida.
+                    builder.WithOrigins("http://localhost:3000")
                            .AllowAnyHeader()   // Permite qualquer cabeçalho na solicitação.
                            .AllowAnyMethod();  // Permite qualquer método HTTP (GET, POST, etc.).
                 });

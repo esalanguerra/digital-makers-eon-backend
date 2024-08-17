@@ -2,29 +2,58 @@ using System.Text.Json.Serialization;
 
 namespace Eon.Com.Domain.Models.Dto.UserDto
 {
+    /// <summary>
+    /// DTO para a atualização das informações de um usuário.
+    /// </summary>
     public class UpdateUserRequestDTO
     {
-        // Nome do usuário (opcional)
+        /// <summary>
+        /// Nome do usuário. Este campo é opcional.
+        /// </summary>
         public string? Name { get; set; }
 
-        // E-mail do usuário (opcional)
+        /// <summary>
+        /// E-mail do usuário. Este campo é opcional.
+        /// </summary>
         public string? Email { get; set; }
 
-        // URL do avatar do usuário (opcional)
+        /// <summary>
+        /// URL do avatar do usuário. Este campo é opcional.
+        /// </summary>
         public string? AvatarUrl { get; set; }
 
-        // Número de WhatsApp do usuário (opcional)
+        /// <summary>
+        /// Número de WhatsApp do usuário. Este campo é opcional.
+        /// </summary>
         public string? PhoneWhatsapp { get; set; }
 
-        // Endereço do usuário (opcional)
+        /// <summary>
+        /// Endereço do usuário. Este campo é opcional.
+        /// </summary>
         public string? Address { get; set; }
 
-        // Notas adicionais sobre o usuário (opcional)
+        /// <summary>
+        /// Notas adicionais sobre o usuário. Este campo é opcional.
+        /// </summary>
         public string? Notes { get; set; }
 
-        // Construtor para inicializar o DTO com valores específicos
+        /// <summary>
+        /// Construtor para inicializar o DTO com valores específicos.
+        /// </summary>
+        /// <param name="name">Nome do usuário.</param>
+        /// <param name="email">E-mail do usuário.</param>
+        /// <param name="avatarUrl">URL do avatar do usuário.</param>
+        /// <param name="phoneWhatsapp">Número de WhatsApp do usuário.</param>
+        /// <param name="address">Endereço do usuário.</param>
+        /// <param name="notes">Notas adicionais sobre o usuário.</param>
         [JsonConstructor]
-        public UpdateUserRequestDTO(string? name = null, string? email = null, string? avatarUrl = null, string? phoneWhatsapp = null, string? address = null, string? notes = null)
+        public UpdateUserRequestDTO(
+            string? name = null, 
+            string? email = null, 
+            string? avatarUrl = null, 
+            string? phoneWhatsapp = null, 
+            string? address = null, 
+            string? notes = null)
         {
             Name = name;
             Email = email;

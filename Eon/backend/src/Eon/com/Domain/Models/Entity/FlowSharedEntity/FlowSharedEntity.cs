@@ -13,20 +13,22 @@ namespace Eon.Com.Domain.Models.Entity.FlowSharedEntity
         public int Id { get; set; }
 
         // Define o campo "id_fluxo" como obrigatório
-        [Column("id_fluxo")]
+        [Column("fluxo_compartilhado_fluxo_id")]
         [Required]
         public int FlowId { get; set; }
 
-         // Define o campo "id_usuario" como obrigatório
-        [Column("id_usuario")]
+        // Define o campo "id_usuario" como obrigatório
+        [Column("fluxo_compartilhado_usuario_id")]
         [Required]
         public int UserId { get; set; }
 
-        [Column("link")]
+        // Define o campo "link" como obrigatório
+        [Column("fluxo_compartilhado_link")]
         [Required]
         public string Link { get; set; }
 
-        [Column("status")]
+        // Define o campo "status" como opcional (booleano)
+        [Column("fluxo_compartilhado_status")]
         public bool Status { get; set; }
 
         // Construtor padrão
@@ -43,7 +45,7 @@ namespace Eon.Com.Domain.Models.Entity.FlowSharedEntity
         {
             FlowId = flowId;
             UserId = userId;
-            Link = link ?? throw new ArgumentNullException(nameof(link));
+            Link = link ?? throw new ArgumentNullException(nameof(link)); // Garante que o link não seja nulo
             Status = status;
         }
     }

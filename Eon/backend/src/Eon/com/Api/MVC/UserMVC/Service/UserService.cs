@@ -19,7 +19,9 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
             _userFactory = userFactory;
         }
 
-        // Obtém todos os usuários e retorna como UserListResponseDTO
+        /// <summary>
+        /// Obtém todos os usuários e retorna uma resposta com uma lista de usuários.
+        /// </summary>
         public UserListResponseDTO GetAll()
         {
             var users = _userRepository.GetAll();
@@ -31,11 +33,14 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
                 user.Address, 
                 user.AvatarUrl, 
                 user.Notes
-            ));
+            )).ToList(); // Convert to List for better performance in case of large datasets
+            
             return new UserListResponseDTO("Success", "200", userDtos);
         }
 
-        // Obtém um usuário pelo ID e retorna como SingleUserResponse
+        /// <summary>
+        /// Obtém um usuário pelo ID e retorna uma resposta com os dados do usuário.
+        /// </summary>
         public SingleUserResponse? GetById(int id)
         {
             var user = _userRepository.GetById(id);
@@ -43,6 +48,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
             {
                 return new SingleUserResponse("User not found", "404", null);
             }
+
             var userDto = new UserViewModel(
                 user.Id, 
                 user.Name, 
@@ -52,10 +58,13 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
                 user.AvatarUrl, 
                 user.Notes
             );
+
             return new SingleUserResponse("Success", "200", userDto);
         }
 
-        // Obtém um usuário pelo nome e retorna como SingleUserResponse
+        /// <summary>
+        /// Obtém um usuário pelo nome e retorna uma resposta com os dados do usuário.
+        /// </summary>
         public SingleUserResponse? GetByName(string name)
         {
             var user = _userRepository.GetByName(name);
@@ -63,6 +72,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
             {
                 return new SingleUserResponse("User not found", "404", null);
             }
+
             var userDto = new UserViewModel(
                 user.Id, 
                 user.Name, 
@@ -72,10 +82,13 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
                 user.AvatarUrl, 
                 user.Notes
             );
+
             return new SingleUserResponse("Success", "200", userDto);
         }
 
-        // Obtém um usuário pelo e-mail e retorna como SingleUserResponse
+        /// <summary>
+        /// Obtém um usuário pelo e-mail e retorna uma resposta com os dados do usuário.
+        /// </summary>
         public SingleUserResponse? GetByEmail(string email)
         {
             var user = _userRepository.GetByEmail(email);
@@ -83,6 +96,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
             {
                 return new SingleUserResponse("User not found", "404", null);
             }
+
             var userDto = new UserViewModel(
                 user.Id, 
                 user.Name, 
@@ -92,10 +106,13 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
                 user.AvatarUrl, 
                 user.Notes
             );
+
             return new SingleUserResponse("Success", "200", userDto);
         }
 
-        // Cria um novo usuário usando CreateUserRequestDTO e retorna como SingleUserResponse
+        /// <summary>
+        /// Cria um novo usuário com base nos dados fornecidos e retorna uma resposta com o usuário criado.
+        /// </summary>
         public SingleUserResponse Save(CreateUserRequestDTO userDto)
         {
             // Valida os dados do usuário usando UserFactory
@@ -117,10 +134,13 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
                 savedUser.AvatarUrl, 
                 savedUser.Notes
             );
+            
             return new SingleUserResponse("User created successfully", "201", responseDto);
         }
 
-        // Atualiza um usuário existente com base no UpdateUserRequestDTO e retorna como SingleUserResponse
+        /// <summary>
+        /// Atualiza um usuário existente com base nos dados fornecidos e retorna uma resposta com o usuário atualizado.
+        /// </summary>
         public SingleUserResponse Update(int id, UpdateUserRequestDTO userDto)
         {
             // Valida os dados do usuário usando UserFactory
@@ -149,10 +169,13 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
                 savedUser.AvatarUrl, 
                 savedUser.Notes
             );
+            
             return new SingleUserResponse("User updated successfully", "200", responseDto);
         }
 
-        // Deleta um usuário pelo ID e retorna como SingleUserResponse
+        /// <summary>
+        /// Deleta um usuário pelo ID e retorna uma resposta com o usuário deletado.
+        /// </summary>
         public SingleUserResponse Delete(int id)
         {
             // Deleta o usuário do repositório
@@ -172,6 +195,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
                 deletedUser.AvatarUrl, 
                 deletedUser.Notes
             );
+
             return new SingleUserResponse("User deleted successfully", "200", responseDto);
         }
     }
