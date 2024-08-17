@@ -31,8 +31,8 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: digital-makers
-      POSTGRES_PASSWORD: digital-makers2024
+      POSTGRES_USER: digitalmakers
+      POSTGRES_PASSWORD: digitalmakers2024
       POSTGRES_DB: postgres
     volumes:
       - ./Eon/postgresql/GenerateDatabase.sql:/docker-entrypoint-initdb.d/GenerateDatabase.sql

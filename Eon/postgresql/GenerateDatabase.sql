@@ -12,21 +12,21 @@ SET timezone = 'America/Sao_Paulo';
 
 -- Create the databases if they don't exist
 CREATE DATABASE digital_makers
-    WITH OWNER = admin
+    WITH OWNER = digitalmakers
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
 
 CREATE DATABASE digital_makers_dev
-    WITH OWNER = admin
+    WITH OWNER = digitalmakers
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
 
 CREATE DATABASE digital_makers_bckp
-    WITH OWNER = admin
+    WITH OWNER = digitalmakers
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
 
 CREATE DATABASE digital_makers_whatsapp
-    WITH OWNER = admin
+    WITH OWNER = digitalmakers
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
