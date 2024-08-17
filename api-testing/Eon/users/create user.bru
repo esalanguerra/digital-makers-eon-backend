@@ -1,0 +1,23 @@
+meta {
+  name: create user
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{HOST}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phoneWhatsapp": "+1234567890",
+      "address": "123 Main St, Springfield, IL",
+      "avatarUrl": "https://example.com/avatar.jpg",
+      "notes": "Este é um usuário de teste."
+  }
+  
+}
