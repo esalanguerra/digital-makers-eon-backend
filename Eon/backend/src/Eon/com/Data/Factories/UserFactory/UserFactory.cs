@@ -30,9 +30,6 @@ namespace Eon.Com.Data.Factories.UserFactory
         // Método privado para validar os dados do UpdateUserRequestDTO.
         private void ValidateUpdateUser(UpdateUserRequestDTO dto)
         {
-            if (string.IsNullOrEmpty(dto.Email))
-                throw new ArgumentException("Email is required.");
-
             // Adicione outras validações conforme necessário.
         }
 
@@ -53,12 +50,23 @@ namespace Eon.Com.Data.Factories.UserFactory
         // Atualiza um objeto User existente com base no UpdateUserRequestDTO.
         public User UpdateUser(User existingUser, UpdateUserRequestDTO dto)
         {
-            existingUser.Name = dto.Name;
-            existingUser.Email = dto.Email;
-            existingUser.AvatarUrl = dto.AvatarUrl;
-            existingUser.PhoneWhatsapp = dto.PhoneWhatsapp;
-            existingUser.Address = dto.Address;
-            existingUser.Notes = dto.Notes;
+            if (!string.IsNullOrEmpty(dto.Name))
+                existingUser.Name = dto.Name;
+
+            if (!string.IsNullOrEmpty(dto.Email))
+                existingUser.Email = dto.Email;
+
+            if (!string.IsNullOrEmpty(dto.AvatarUrl))
+                existingUser.AvatarUrl = dto.AvatarUrl;
+
+            if (!string.IsNullOrEmpty(dto.PhoneWhatsapp))
+                existingUser.PhoneWhatsapp = dto.PhoneWhatsapp;
+
+            if (!string.IsNullOrEmpty(dto.Address))
+                existingUser.Address = dto.Address;
+
+            if (!string.IsNullOrEmpty(dto.Notes))
+                existingUser.Notes = dto.Notes;
 
             return existingUser;
         }
