@@ -21,3 +21,13 @@ dotnet ef database update
 - [ ] folders
 - [ ] flows shareds
 - [ ] flows
+
+### Features
+
+- [ ] Autenticação
+- [ ] Autorização
+- [ ] CRUD
+- [ ] Paginação
+- [ ] Cache
+- [ ] Testes
+- [ ] Cors
