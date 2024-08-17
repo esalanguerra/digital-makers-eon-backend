@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Eon.Com.Domain.Models.Entity.SectorEntity; // Importa a classe Sector para o relacionamento
+using Eon.Com.Domain.Models.Entity.SectorEntity;
+using Eon.Com.Interfaces.Entities.TeamEntity; // Importa a classe Sector para o relacionamento
 
 namespace Eon.Com.Domain.Models.Entity.TeamEntity
 {
     [Table("times")] // Mapeia a classe para a tabela "times" no banco de dados
-    public class Team
+    public class Team : TeamEntityInterface // Implementa a interface TeamEntityInterface
     {
         [Key] // Define o campo "id" como chave primária da tabela
         [Column("id")]
