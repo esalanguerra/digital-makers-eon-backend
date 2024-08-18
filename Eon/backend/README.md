@@ -13,14 +13,14 @@ dotnet ef database update
 ### Tasks
 
 - [X] users
-- [ ] tokens
 - [X] teams
-- [ ] tags
+- [x] tags
 - [ ] sectors
 - [ ] messages schedulings
 - [ ] folders
 - [ ] flows shareds
 - [ ] flows
+- [ ] tokens
 
 ### Features
 

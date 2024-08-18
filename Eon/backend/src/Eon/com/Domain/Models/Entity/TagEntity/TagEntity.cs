@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Eon.Com.Domain.Models.Entity.SectorEntity; // Importa a classe Sector para o relacionamento
+using Eon.Com.Domain.Models.Entity.SectorEntity;
+using Eon.Com.Interfaces.Entities.TagEntity; // Importa a classe Sector para o relacionamento
 
 namespace Eon.Com.Domain.Models.Entity.TagEntity
 {
     [Table("etiquetas")] // Mapeia a classe para a tabela "etiquetas" no banco de dados
-    public class Tag
+    public class Tag : ITagEntityInterface // Implementa a interface ITagEntityInterface
     {
         [Key] // Define o campo "id" como chave primária da tabela
         [Column("id")]

@@ -1,0 +1,20 @@
+meta {
+  name: create tag
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{HOST}}/tags
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "Name": "Important Tag",
+      "Description": "This is a tag used for important items.",
+      "SectorId": 1
+  }
+  
+}
