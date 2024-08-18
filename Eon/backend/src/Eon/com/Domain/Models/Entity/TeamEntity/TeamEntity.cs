@@ -6,7 +6,7 @@ using Eon.Com.Interfaces.Entities.TeamEntity; // Importa a classe Sector para o 
 namespace Eon.Com.Domain.Models.Entity.TeamEntity
 {
     [Table("times")] // Mapeia a classe para a tabela "times" no banco de dados
-    public class Team : TeamEntityInterface // Implementa a interface TeamEntityInterface
+    public class Team : ITeamEntityInterface // Implementa a interface TeamEntityInterface
     {
         [Key] // Define o campo "id" como chave primária da tabela
         [Column("id")]

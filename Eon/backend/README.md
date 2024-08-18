@@ -14,7 +14,7 @@ dotnet ef database update
 
 - [X] users
 - [ ] tokens
-- [ ] teams
+- [X] teams
 - [ ] tags
 - [ ] sectors
 - [ ] messages schedulings

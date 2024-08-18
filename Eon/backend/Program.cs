@@ -1,12 +1,24 @@
-using Eon.Com.Api.Mvc.UserMvc.Service;
+using Microsoft.EntityFrameworkCore;
+
 using Eon.Com.Application.Configurations.Cors;
 using Eon.Com.Application.Configurations.Database.Postgresql;
+
+using Eon.Com.Api.Mvc.UserMvc.Service;
+using Eon.Com.Api.Mvc.TeamMvc.Service;
+
 using Eon.Com.Data.Factories.UserFactory;
+using Eon.Com.Data.Factories.TeamFactory;
+
+using Eon.Data.Repositories.UserRepository;
+using Eon.Data.Repositories.TeamRepository;
+
 using Eon.Com.Interfaces.Factories.UserFactory;
 using Eon.Com.Interfaces.Repositories.UserRepository;
 using Eon.Com.Interfaces.Services.UserService;
-using Eon.Data.Repositories.UserRepository;
-using Microsoft.EntityFrameworkCore;
+using Eon.Com.Interfaces.Factories.TeamFactory;
+using Eon.Com.Interfaces.Repositories.TeamRepository;
+using Eon.Com.Interfaces.Services.TeamService;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,14 +39,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Configuração de injeção de dependência para o repositório de usuários.
 // IUserRepositoryInterface é implementado pela classe UserRepository.
 builder.Services.AddTransient<IUserRepositoryInterface, UserRepository>();
+builder.Services.AddTransient<ITeamRepositoryInterface, TeamRepository>();
 
 // Configuração de injeção de dependência para a fábrica de usuários.
 // IUserFactoryInterface é implementado pela classe UserFactory.
 builder.Services.AddTransient<IUserFactoryInterface, UserFactory>();
+builder.Services.AddTransient<ITeamFactoryInterface, TeamFactory>();
 
 // Configuração de injeção de dependência para o serviço de usuários.
 // IUserServiceInterface é implementado pela classe UserService.
 builder.Services.AddTransient<IUserServiceInterface, UserService>();
+builder.Services.AddTransient<ITeamServiceInterface, TeamService>();
 
 // Adiciona suporte para controllers e APIs.
 builder.Services.AddControllers();

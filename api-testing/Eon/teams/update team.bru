@@ -1,0 +1,17 @@
+meta {
+  name: update team
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{HOST}}/teams/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "time de teste"
+  }
+}

@@ -5,7 +5,7 @@ namespace Eon.Com.Interfaces.Entities.TeamEntity
     /// <summary>
     /// Interface para definir a estrutura da entidade de equipe.
     /// </summary>
-    public interface TeamEntityInterface
+    public interface ITeamEntityInterface
     {
         /// <summary>
         /// Identificador único da equipe.
