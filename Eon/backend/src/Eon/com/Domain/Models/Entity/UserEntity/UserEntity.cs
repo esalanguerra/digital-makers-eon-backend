@@ -7,7 +7,7 @@ using Eon.Com.Interfaces.Entities.UserEntity;
 namespace Eon.Com.Domain.Models.Entity.UserEntity
 {
     [Table("usuarios")] // Mapeia a classe para a tabela "usuarios" no banco de dados
-    public class User : UserEntityInterface
+    public class User : IUserEntityInterface
     {
         [Key] // Define o campo "id" como chave primária da tabela
         [Column("id")]

@@ -18,7 +18,7 @@ namespace Eon.Com.Domain.Models.Entity.TagEntity
         [Column("etiqueta_descricao")] // Define o campo "description" na tabela
         public string Description { get; set; } // Pode ser nulo
 
-        [Column("etiqueta_sector_id")] // Define o campo "sector_id" na tabela
+        [Column("etiqueta_setor_id")] // Define o campo "sector_id" na tabela
         public int SectorId { get; set; } // Chave estrangeira para o setor
 
         // Propriedade de navegação para o setor associado

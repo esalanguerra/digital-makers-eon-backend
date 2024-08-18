@@ -22,7 +22,7 @@ namespace Eon.Com.Domain.Models.Entity.SectorEntity
         [Required] // Torna o campo obrigatório
         public string Description { get; set; }
 
-        [Column("setor_user_responsavel_id")] // Define o campo "user_business_id" na tabela
+        [Column("setor_usuario_responsavel_id")] // Define o campo "user_business_id" na tabela
         public int UserBusinessId { get; set; } // Chave estrangeira para o dono do setor
 
         // Propriedade de navegação para o usuário associado

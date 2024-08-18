@@ -6,8 +6,8 @@ namespace Eon.Com.Interfaces.Services.UserService
     public interface IUserServiceInterface
     {
         // Retorna uma coleção de usuários encapsulada em um DTO com mensagem e código.
-        // O DTO UserListResponseDTO contém a lista de usuários e informações adicionais, como mensagens de status.
-        UserListResponseDTO GetAll();
+        // O DTO UserListResponse contém a lista de usuários e informações adicionais, como mensagens de status.
+        UserListResponse GetAll();
 
         // Retorna um único usuário com base no ID.
         // O retorno é encapsulado em um DTO SingleUserResponse com mensagem e código de status.

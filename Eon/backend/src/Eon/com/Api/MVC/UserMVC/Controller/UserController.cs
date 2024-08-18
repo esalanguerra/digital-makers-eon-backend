@@ -28,7 +28,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
             var userListResponse = _userService.GetAll();
             if (userListResponse == null || !userListResponse.Data.Any())
             {
-                return NotFound(new UserListResponseDTO
+                return NotFound(new UserListResponse
                 {
                     Message = "No users found.",
                     Code = "404",

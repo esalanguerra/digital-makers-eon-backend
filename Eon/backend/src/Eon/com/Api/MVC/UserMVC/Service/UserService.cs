@@ -22,7 +22,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
         /// <summary>
         /// Obtém todos os usuários e retorna uma resposta com uma lista de usuários.
         /// </summary>
-        public UserListResponseDTO GetAll()
+        public UserListResponse GetAll()
         {
             var users = _userRepository.GetAll();
             var userDtos = users.Select(user => new UserViewModel(
@@ -35,7 +35,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Service
                 user.Notes
             )).ToList(); // Convert to List for better performance in case of large datasets
             
-            return new UserListResponseDTO("Success", "200", userDtos);
+            return new UserListResponse("Success", "200", userDtos);
         }
 
         /// <summary>

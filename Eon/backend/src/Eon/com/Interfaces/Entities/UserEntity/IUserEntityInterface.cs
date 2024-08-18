@@ -1,7 +1,7 @@
 namespace Eon.Com.Interfaces.Entities.UserEntity
 {
     // Interface para definir a estrutura da entidade de usuário.
-    public interface UserEntityInterface
+    public interface IUserEntityInterface
     {
         // Identificador único do usuário.
         // Deve ser um valor único para cada usuário e geralmente é gerado automaticamente.

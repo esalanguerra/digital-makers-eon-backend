@@ -6,7 +6,7 @@ namespace Eon.Com.Api.ActionResults.ApiResponseData.UserApiResponseData
     /// <summary>
     /// Representa a resposta para uma solicitação que retorna uma lista de usuários.
     /// </summary>
-    public class UserListResponseDTO
+    public class UserListResponse
     {
         /// <summary>
         /// Mensagem de resposta (por exemplo, "Sucesso" ou "Erro").
@@ -29,7 +29,7 @@ namespace Eon.Com.Api.ActionResults.ApiResponseData.UserApiResponseData
         /// <param name="message">Mensagem de resposta.</param>
         /// <param name="code">Código de resposta.</param>
         /// <param name="users">Lista de usuários.</param>
-        public UserListResponseDTO(string message, string code, IEnumerable<UserViewModel> users)
+        public UserListResponse(string message, string code, IEnumerable<UserViewModel> users)
         {
             Message = message;
             Code = code;
@@ -39,7 +39,7 @@ namespace Eon.Com.Api.ActionResults.ApiResponseData.UserApiResponseData
         /// <summary>
         /// Construtor padrão.
         /// </summary>
-        public UserListResponseDTO()
+        public UserListResponse()
         {
             Data = new List<UserViewModel>();
         }
