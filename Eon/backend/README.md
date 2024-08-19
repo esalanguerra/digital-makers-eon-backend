@@ -38,3 +38,14 @@ dotnet ef database update
 - UpdateDTO
 - Entity
 - ViewModel
+- EntityInterface
+- ListResponse
+- SingleResponse
+- Service
+- Repository
+- Controller
+- Factory
+- ServiceInterface
+- RepositoryInterface
+- ControllerInterface
+- FactoryInterface
