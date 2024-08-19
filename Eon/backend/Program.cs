@@ -6,14 +6,17 @@ using Eon.Com.Application.Configurations.Database.Postgresql;
 using Eon.Com.Api.Mvc.UserMvc.Service;
 using Eon.Com.Api.Mvc.TeamMvc.Service;
 using Eon.Com.Api.Mvc.TagMvc.Service;
+using Eon.Com.Api.Mvc.SectorMvc.Service;
 
 using Eon.Com.Data.Factories.UserFactory;
 using Eon.Com.Data.Factories.TeamFactory;
 using Eon.Com.Data.Factories.TagFactory;
+using Eon.Com.Data.Factories.SectorFactory;
 
 using Eon.Data.Repositories.UserRepository;
 using Eon.Data.Repositories.TeamRepository;
 using Eon.Data.Repositories.TagRepository;
+using Eon.Data.Repositories.SectorRepository;
 
 using Eon.Com.Interfaces.Factories.UserFactory;
 using Eon.Com.Interfaces.Repositories.UserRepository;
@@ -24,6 +27,10 @@ using Eon.Com.Interfaces.Services.TeamService;
 using Eon.Com.Interfaces.Factories.TagFactory;
 using Eon.Com.Interfaces.Repositories.TagRepository;
 using Eon.Com.Interfaces.Services.TagService;
+using Eon.Com.Interfaces.Factories.SectorFactory;
+using Eon.Com.Interfaces.Repositories.SectorRepository;
+using Eon.Com.Interfaces.Services.SectorService;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,18 +53,21 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddTransient<IUserRepositoryInterface, UserRepository>();
 builder.Services.AddTransient<ITeamRepositoryInterface, TeamRepository>();
 builder.Services.AddTransient<ITagRepositoryInterface, TagRepository>();
+builder.Services.AddTransient<ISectorRepositoryInterface, SectorRepository>();
 
 // Configuração de injeção de dependência para a fábrica de usuários.
 // IUserFactoryInterface é implementado pela classe UserFactory.
 builder.Services.AddTransient<IUserFactoryInterface, UserFactory>();
 builder.Services.AddTransient<ITeamFactoryInterface, TeamFactory>();
 builder.Services.AddTransient<ITagFactoryInterface, TagFactory>();
+builder.Services.AddTransient<ISectorFactoryInterface, SectorFactory>();
 
 // Configuração de injeção de dependência para o serviço de usuários.
 // IUserServiceInterface é implementado pela classe UserService.
 builder.Services.AddTransient<IUserServiceInterface, UserService>();
 builder.Services.AddTransient<ITeamServiceInterface, TeamService>();
 builder.Services.AddTransient<ITagServiceInterface, TagService>();
+builder.Services.AddTransient<ISectorServiceInterface, SectorService>();
 
 // Adiciona suporte para controllers e APIs.
 builder.Services.AddControllers();

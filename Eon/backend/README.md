@@ -14,8 +14,8 @@ dotnet ef database update
 
 - [X] users
 - [X] teams
-- [x] tags
-- [ ] sectors
+- [X] tags
+- [X] sectors
 - [ ] messages schedulings
 - [ ] folders
 - [ ] flows shareds
@@ -31,3 +31,10 @@ dotnet ef database update
 - [ ] Cache
 - [ ] Testes
 - [ ] Cors
+
+### Modulos
+
+- CreateDTO
+- UpdateDTO
+- Entity
+- ViewModel

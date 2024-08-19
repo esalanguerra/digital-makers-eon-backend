@@ -1,0 +1,17 @@
+meta {
+  name: update sector
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{HOST}}/sectors/3
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userBusinessId": 1
+  }
+}
