@@ -10,6 +10,12 @@ dotnet tool install --global dotnet-ef --version 8.0.7
 dotnet ef database update
 ```
 
+### Start
+
+```bash
+dotnet run
+```
+
 ### Tasks
 
 - [X] users
