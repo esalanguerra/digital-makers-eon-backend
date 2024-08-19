@@ -32,7 +32,7 @@ dotnet ef database update
 - [ ] Testes
 - [ ] Cors
 
-### Modulos
+### Arquivos
 
 - CreateDTO
 - UpdateDTO
