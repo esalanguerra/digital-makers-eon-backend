@@ -22,7 +22,7 @@ dotnet run
 - [X] teams
 - [X] tags
 - [X] sectors
-- [ ] messages schedulings
+- [X] messages schedulings
 - [ ] folders
 - [ ] flows shareds
 - [ ] flows
