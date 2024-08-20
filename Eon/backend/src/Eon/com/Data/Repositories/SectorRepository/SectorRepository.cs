@@ -1,6 +1,7 @@
 using Eon.Com.Application.Configurations.Database.Postgresql;
 using Eon.Com.Domain.Models.Entity.SectorEntity;
 using Eon.Com.Interfaces.Repositories.SectorRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,7 +100,7 @@ namespace Eon.Data.Repositories.SectorRepository
         /// <returns>O setor com o ID especificado ou null se não encontrado.</returns>
         public Sector? GetById(int id)
         {
-            return _context.Sectors.Find(id);
+            return _context.Sectors.Include(s => s.UserBusiness).FirstOrDefault(s => s.Id == id);
         }
 
         /// <summary>

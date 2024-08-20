@@ -1,3 +1,5 @@
+using Eon.Com.Domain.Models.Entity.UserEntity;
+
 namespace Eon.Com.Api.ActionResults.ViewModels.SectorViewModel
 {
     /// <summary>
@@ -17,6 +19,8 @@ namespace Eon.Com.Api.ActionResults.ViewModels.SectorViewModel
         // Identificador do usuário responsável pelo setor
         public int UserBusinessId { get; }
 
+        public User UserBusiness { get; set; }
+
         /// <summary>
         /// Construtor padrão que inicializa as propriedades com valores padrão.
         /// </summary>
@@ -26,6 +30,7 @@ namespace Eon.Com.Api.ActionResults.ViewModels.SectorViewModel
             Name = string.Empty;
             Description = string.Empty;
             UserBusinessId = 0;
+            UserBusiness = new User();
         }
 
         /// <summary>
@@ -35,12 +40,13 @@ namespace Eon.Com.Api.ActionResults.ViewModels.SectorViewModel
         /// <param name="name">Nome do setor.</param>
         /// <param name="description">Descrição do setor.</param>
         /// <param name="userBusinessId">Identificador do usuário responsável pelo setor.</param>
-        public SectorViewModel(int id, string name, string description, int userBusinessId)
+        public SectorViewModel(int id, string name, string description, int userBusinessId, User userBusiness)
         {
             Id = id;
             Name = name;
             Description = description;
             UserBusinessId = userBusinessId;
+            UserBusiness = userBusiness;
         }
     }
 }

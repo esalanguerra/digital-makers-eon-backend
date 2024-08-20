@@ -29,7 +29,8 @@ namespace Eon.Com.Api.Mvc.SectorMvc.Service
                 sector.Id, 
                 sector.Name, 
                 sector.Description, 
-                sector.UserBusinessId
+                sector.UserBusinessId,
+                sector.UserBusiness
             )).ToList(); // Convert to List for better performance in case of large datasets
             
             return new SectorListResponse("Success", "200", sectorDtos);
@@ -50,7 +51,8 @@ namespace Eon.Com.Api.Mvc.SectorMvc.Service
                 sector.Id, 
                 sector.Name, 
                 sector.Description, 
-                sector.UserBusinessId
+                sector.UserBusinessId,
+                sector.UserBusiness
             );
 
             return new SingleSectorResponse("Success", "200", sectorDto);
@@ -71,7 +73,8 @@ namespace Eon.Com.Api.Mvc.SectorMvc.Service
                 sector.Id, 
                 sector.Name, 
                 sector.Description, 
-                sector.UserBusinessId
+                sector.UserBusinessId,
+                sector.UserBusiness
             );
 
             return new SingleSectorResponse("Success", "200", sectorDto);
@@ -96,7 +99,8 @@ namespace Eon.Com.Api.Mvc.SectorMvc.Service
                 savedSector.Id, 
                 savedSector.Name, 
                 savedSector.Description, 
-                savedSector.UserBusinessId
+                savedSector.UserBusinessId,
+                savedSector.UserBusiness
             );
             
             return new SingleSectorResponse("Sector created successfully", "201", responseDto);
@@ -128,7 +132,8 @@ namespace Eon.Com.Api.Mvc.SectorMvc.Service
                 savedSector.Id, 
                 savedSector.Name, 
                 savedSector.Description, 
-                savedSector.UserBusinessId
+                savedSector.UserBusinessId,
+                savedSector.UserBusiness
             );
             
             return new SingleSectorResponse("Sector updated successfully", "200", responseDto);
@@ -151,7 +156,8 @@ namespace Eon.Com.Api.Mvc.SectorMvc.Service
                 deletedSector.Id, 
                 deletedSector.Name, 
                 deletedSector.Description, 
-                deletedSector.UserBusinessId
+                deletedSector.UserBusinessId,
+                deletedSector.UserBusiness
             );
 
             return new SingleSectorResponse("Sector deleted successfully", "200", responseDto);
