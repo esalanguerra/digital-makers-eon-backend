@@ -25,16 +25,13 @@ dotnet run
 - [X] messages schedulings
 - [X] folders
 - [X] flows shareds
-- [ ] flows
-- [ ] tokens
+- [X] flows
 
 ### Features
 
 - [ ] Autenticação
 - [ ] Autorização
-- [ ] CRUD
-- [ ] Paginação
-- [ ] Cache
+- [x] CRUD
 - [X] Cors
 
 ### Arquivos
@@ -46,10 +43,10 @@ dotnet run
 - ViewModel
 - ListResponse
 - SingleResponse
-- ServiceInterface
 - RepositoryInterface
-- ControllerInterface
 - FactoryInterface
+- ServiceInterface
+- ControllerInterface
 - Repository
 - Factory
 - Service

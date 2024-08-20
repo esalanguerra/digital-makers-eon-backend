@@ -1,0 +1,17 @@
+meta {
+  name: update flow
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{HOST}}/flows/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "folderId": 2
+  }
+}

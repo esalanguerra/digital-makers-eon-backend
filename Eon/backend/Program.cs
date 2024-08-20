@@ -10,6 +10,7 @@ using Eon.Com.Api.Mvc.SectorMvc.Service;
 using Eon.Com.Api.Mvc.MessageSchedulingMvc.Service;
 using Eon.Com.Api.Mvc.FolderMvc.Service;
 using Eon.Com.Api.Mvc.FlowSharedMvc.Service;
+using Eon.Com.Api.Mvc.FlowMvc.Service;
 
 using Eon.Com.Data.Factories.UserFactory;
 using Eon.Com.Data.Factories.TeamFactory;
@@ -18,6 +19,7 @@ using Eon.Com.Data.Factories.SectorFactory;
 using Eon.Com.Data.Factories.MessageSchedulingFactory;
 using Eon.Com.Data.Factories.FolderFactory;
 using Eon.Com.Data.Factories.FlowSharedFactory;
+using Eon.Com.Data.Factories.FlowFactory;
 
 using Eon.Data.Repositories.UserRepository;
 using Eon.Data.Repositories.TeamRepository;
@@ -26,6 +28,7 @@ using Eon.Data.Repositories.SectorRepository;
 using Eon.Data.Repositories.MessageSchedulingRepository;
 using Eon.Data.Repositories.FolderRepository;
 using Eon.Data.Repositories.FlowSharedRepository;
+using Eon.Data.Repositories.FlowRepository;
 
 using Eon.Com.Interfaces.Factories.UserFactory;
 using Eon.Com.Interfaces.Repositories.UserRepository;
@@ -48,6 +51,9 @@ using Eon.Com.Interfaces.Services.FolderService;
 using Eon.Com.Interfaces.Factories.FlowSharedFactory;
 using Eon.Com.Interfaces.Repositories.FlowSharedRepository;
 using Eon.Com.Interfaces.Services.FlowSharedService;
+using Eon.Com.Interfaces.Factories.FlowFactory;
+using Eon.Com.Interfaces.Repositories.FlowRepository;
+using Eon.Com.Interfaces.Services.FlowService;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -75,6 +81,7 @@ builder.Services.AddTransient<ISectorRepositoryInterface, SectorRepository>();
 builder.Services.AddTransient<IMessageSchedulingRepositoryInterface, MessageSchedulingRepository>();
 builder.Services.AddTransient<IFolderRepositoryInterface, FolderRepository>();
 builder.Services.AddTransient<IFlowSharedRepositoryInterface, FlowSharedRepository>();
+builder.Services.AddTransient<IFlowRepositoryInterface, FlowRepository>();
 
 // Configuração de injeção de dependência para a fábrica de usuários.
 // IUserFactoryInterface é implementado pela classe UserFactory.
@@ -85,6 +92,7 @@ builder.Services.AddTransient<ISectorFactoryInterface, SectorFactory>();
 builder.Services.AddTransient<IMessageSchedulingFactoryInterface, MessageSchedulingFactory>();
 builder.Services.AddTransient<IFolderFactoryInterface, FolderFactory>();
 builder.Services.AddTransient<IFlowSharedFactoryInterface, FlowSharedFactory>();
+builder.Services.AddTransient<IFlowFactoryInterface, FlowFactory>();
 
 // Configuração de injeção de dependência para o serviço de usuários.
 // IUserServiceInterface é implementado pela classe UserService.
@@ -95,6 +103,7 @@ builder.Services.AddTransient<ISectorServiceInterface, SectorService>();
 builder.Services.AddTransient<IMessageSchedulingServiceInterface, MessageSchedulingService>();
 builder.Services.AddTransient<IFolderServiceInterface, FolderService>();
 builder.Services.AddTransient<IFlowSharedServiceInterface, FlowSharedService>();
+builder.Services.AddTransient<IFlowServiceInterface, FlowService>();
 
 // Adiciona suporte para controllers e APIs.
 builder.Services.AddControllers();

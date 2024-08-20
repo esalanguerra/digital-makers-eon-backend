@@ -1,0 +1,19 @@
+meta {
+  name: create flow
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{HOST}}/flows
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "My Flow",
+    "folderId": 1
+  }
+  
+}

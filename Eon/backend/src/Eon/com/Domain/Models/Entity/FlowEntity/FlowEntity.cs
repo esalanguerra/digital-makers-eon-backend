@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Eon.Com.Domain.Models.Entity.FolderEntity;
+using Eon.Com.Interfaces.Entities.FlowEntity;
 
 namespace Eon.Com.Domain.Models.Entity.FlowEntity
 {
     // Mapeia a classe Flow para a tabela "fluxos" no banco de dados
     [Table("fluxos")]
-    public class Flow
+    public class Flow : IFlowEntityInterface // Implementa a interface IFlowEntityInterface
     {
         // Define o campo "id" como chave primária da tabela
         [Key]
