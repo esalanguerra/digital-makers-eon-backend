@@ -1,0 +1,18 @@
+meta {
+  name: update message scheduling
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{HOST}}/messagescheduling/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "status": "andamento"
+  }
+  
+}

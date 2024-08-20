@@ -1,0 +1,18 @@
+meta {
+  name: update user
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{HOST}}/users/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "notes": "Este é um usuário de teste do app."
+  }
+  
+}

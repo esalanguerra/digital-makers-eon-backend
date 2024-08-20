@@ -1,0 +1,18 @@
+meta {
+  name: update flow shared
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{HOST}}/flows-shared/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "status": false
+  }
+  
+}

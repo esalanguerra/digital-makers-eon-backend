@@ -1,0 +1,20 @@
+meta {
+  name: create team
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{HOST}}/teams
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Development Team",
+    "description": "Responsible for developing and maintaining software applications.",
+    "sectorId": 1
+  }
+  
+}
