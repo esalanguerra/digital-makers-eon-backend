@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Eon.Com.Interfaces.Entities.FlowSharedEntity;
 
 namespace Eon.Com.Domain.Models.Entity.FlowSharedEntity
 {
     // Mapeia a classe SharedFlow para a tabela "fluxos_compartilhados" no banco de dados
     [Table("fluxos_compartilhados")]
-    public class FlowShared
+    public class FlowShared: IFlowSharedEntityInterface // Implementa a interface IFlowSharedEntityInterface
     {
         // Define o campo "id" como chave primária da tabela
         [Key]

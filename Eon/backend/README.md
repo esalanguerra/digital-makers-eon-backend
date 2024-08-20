@@ -24,7 +24,7 @@ dotnet run
 - [X] sectors
 - [X] messages schedulings
 - [X] folders
-- [ ] flows shareds
+- [X] flows shareds
 - [ ] flows
 - [ ] tokens
 
@@ -35,8 +35,7 @@ dotnet run
 - [ ] CRUD
 - [ ] Paginação
 - [ ] Cache
-- [ ] Testes
-- [ ] Cors
+- [X] Cors
 
 ### Arquivos
 
