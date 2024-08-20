@@ -1,0 +1,24 @@
+meta {
+  name: create message scheduling
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{HOST}}/messagescheduling
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "messageText": "Olá, esta é uma mensagem de teste.",
+    "tagId": 1,
+    "userId": 123,
+    "flowId": 456,
+    "sendDate": "2024-08-21T14:00:00Z",
+    "whatsAppNumber": "+5511999999999",
+    "status": "Scheduled"
+  }
+  
+}

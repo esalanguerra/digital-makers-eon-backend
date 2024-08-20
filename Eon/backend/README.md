@@ -47,11 +47,11 @@ dotnet run
 - EntityInterface
 - ListResponse
 - SingleResponse
-- Service
-- Repository
-- Controller
-- Factory
 - ServiceInterface
 - RepositoryInterface
 - ControllerInterface
 - FactoryInterface
+- Service
+- Repository
+- Controller
+- Factory

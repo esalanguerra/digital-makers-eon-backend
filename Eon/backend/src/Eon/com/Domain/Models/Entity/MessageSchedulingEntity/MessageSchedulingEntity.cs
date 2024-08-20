@@ -2,12 +2,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Eon.Com.Domain.Models.Entity.TagEntity; // Importa a classe Tag para o relacionamento
 using Eon.Com.Domain.Models.Entity.UserEntity; // Importa a classe User para o relacionamento
-using Eon.Com.Domain.Models.Entity.FlowEntity; // Importa a classe Flow para o relacionamento
+using Eon.Com.Domain.Models.Entity.FlowEntity;
+using Eon.Com.Interfaces.Entities.MessageSchedulingEntity; // Importa a classe Flow para o relacionamento
 
 namespace Eon.Com.Domain.Models.Entity.MessageSchedulingEntity
 {
     [Table("mensagens_agendadas")] // Mapeia a classe para a tabela "mensagens_agendadas" no banco de dados
-    public class MessageScheduling
+    public class MessageScheduling : IMessageSchedulingEntityInterface // Implementa a interface IMessageSchedulingEntityInterface
     {
         [Key] // Define o campo "id" como chave primária da tabela
         [Column("id")]

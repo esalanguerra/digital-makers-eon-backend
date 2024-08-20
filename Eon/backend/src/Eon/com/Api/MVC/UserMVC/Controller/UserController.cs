@@ -13,14 +13,16 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
     {
         private readonly IUserServiceInterface _userService;
 
-        // Construtor que injeta o serviço de usuário
+        // Construtor que injeta o serviço de usuário.
+        // Recebe uma instância de IUserServiceInterface que será usada para operações de CRUD.
         public UserController(IUserServiceInterface userService)
         {
-            _userService = userService;
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
         /// <summary>
         /// Obtém todos os usuários.
+        /// Retorna uma resposta com uma lista de usuários.
         /// </summary>
         [HttpGet]
         public IActionResult GetAll()
@@ -28,6 +30,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
             var userListResponse = _userService.GetAll();
             if (userListResponse == null || !userListResponse.Data.Any())
             {
+                // Retorna uma resposta 404 se nenhum usuário for encontrado.
                 return NotFound(new UserListResponse
                 {
                     Message = "No users found.",
@@ -41,6 +44,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
 
         /// <summary>
         /// Obtém um usuário pelo ID.
+        /// Retorna uma resposta com os dados do usuário ou uma mensagem de erro se o usuário não for encontrado.
         /// </summary>
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
@@ -49,6 +53,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
 
             if (userResponse == null)
             {
+                // Retorna uma resposta 404 se o usuário não for encontrado.
                 return NotFound(new SingleUserResponse
                 {
                     Message = "User not found.",
@@ -61,13 +66,15 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
         }
 
         /// <summary>
-        /// Cria um novo usuário.
+        /// Cria um novo usuário com base nos dados fornecidos.
+        /// Retorna uma resposta com os dados do usuário criado ou uma mensagem de erro se a criação falhar.
         /// </summary>
         [HttpPost]
         public IActionResult Save([FromBody] CreateUserRequestDTO userDto)
         {
             if (userDto == null)
             {
+                // Retorna uma resposta 400 se os dados do usuário não forem fornecidos.
                 return BadRequest("User data is required.");
             }
 
@@ -75,6 +82,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
 
             if (createdUserResponse == null)
             {
+                // Retorna uma resposta 400 se a criação do usuário falhar.
                 return BadRequest(new SingleUserResponse
                 {
                     Message = "User could not be created.",
@@ -83,6 +91,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
                 });
             }
 
+            // Retorna uma resposta 201 com a localização do novo usuário.
             return CreatedAtAction(
                 nameof(GetById),
                 new { id = createdUserResponse.Data?.Id },
@@ -91,13 +100,15 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
         }
 
         /// <summary>
-        /// Atualiza um usuário existente.
+        /// Atualiza um usuário existente com base nos dados fornecidos.
+        /// Retorna uma resposta 204 se a atualização for bem-sucedida ou uma mensagem de erro se a atualização falhar.
         /// </summary>
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] UpdateUserRequestDTO userDto)
         {
             if (userDto == null)
             {
+                // Retorna uma resposta 400 se os dados do usuário não forem fornecidos.
                 return BadRequest("User data is required.");
             }
 
@@ -105,6 +116,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
 
             if (existingUserResponse == null)
             {
+                // Retorna uma resposta 404 se o usuário não for encontrado.
                 return NotFound(new SingleUserResponse
                 {
                     Message = "User not found.",
@@ -116,6 +128,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
             var updatedUserResponse = _userService.Update(id, userDto);
             if (updatedUserResponse == null)
             {
+                // Retorna uma resposta 400 se a atualização falhar.
                 return BadRequest(new SingleUserResponse
                 {
                     Message = "User could not be updated.",
@@ -124,11 +137,13 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
                 });
             }
 
+            // Retorna uma resposta 204 indicando que a atualização foi bem-sucedida.
             return NoContent();
         }
 
         /// <summary>
         /// Deleta um usuário pelo ID.
+        /// Retorna uma resposta 204 se a exclusão for bem-sucedida ou uma mensagem de erro se o usuário não for encontrado.
         /// </summary>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -137,6 +152,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
 
             if (userResponse == null)
             {
+                // Retorna uma resposta 404 se o usuário não for encontrado.
                 return NotFound(new SingleUserResponse
                 {
                     Message = "User not found.",
@@ -146,6 +162,7 @@ namespace Eon.Com.Api.Mvc.UserMvc.Controller
             }
 
             _userService.Delete(id);
+            // Retorna uma resposta 204 indicando que a exclusão foi bem-sucedida.
             return NoContent();
         }
     }
