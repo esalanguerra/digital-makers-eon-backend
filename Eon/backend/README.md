@@ -23,7 +23,7 @@ dotnet run
 - [X] tags
 - [X] sectors
 - [X] messages schedulings
-- [ ] folders
+- [X] folders
 - [ ] flows shareds
 - [ ] flows
 - [ ] tokens
@@ -40,18 +40,18 @@ dotnet run
 
 ### Arquivos
 
+- Entity
+- EntityInterface
 - CreateDTO
 - UpdateDTO
-- Entity
 - ViewModel
-- EntityInterface
 - ListResponse
 - SingleResponse
 - ServiceInterface
 - RepositoryInterface
 - ControllerInterface
 - FactoryInterface
-- Service
 - Repository
-- Controller
 - Factory
+- Service
+- Controller

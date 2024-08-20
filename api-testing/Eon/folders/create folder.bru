@@ -1,0 +1,19 @@
+meta {
+  name: create folder
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{HOST}}/folders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "My Folder",
+    "sectorId": 1
+  }
+  
+}

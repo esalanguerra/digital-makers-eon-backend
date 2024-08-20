@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Eon.Com.Domain.Models.Entity.SectorEntity; // Importa a classe Sector para o relacionamento
+using Eon.Com.Domain.Models.Entity.SectorEntity;
+using Eon.Com.Interfaces.Entities.FolderEntity; // Importa a classe Sector para o relacionamento
 
 namespace Eon.Com.Domain.Models.Entity.FolderEntity
 {
     [Table("pastas")] // Mapeia a classe para a tabela "pastas" no banco de dados
-    public class Folder
+    public class Folder : IFolderEntityInterface // Implementa a interface IFolderEntityInterface
     {
         [Key] // Define o campo "id" como chave primária da tabela
         [Column("id")]

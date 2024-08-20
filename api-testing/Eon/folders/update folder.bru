@@ -1,0 +1,17 @@
+meta {
+  name: update folder
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{HOST}}/folders/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "teste"
+  }
+}
